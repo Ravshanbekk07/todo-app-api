@@ -6,6 +6,7 @@ this is a todo app api for practice with django.
 
 - [x] Create a todo
 - [x] List all todos
+- [x] Get a todo
 - [x] Update a todo
 - [x] Delete a todo
 
