@@ -4,6 +4,11 @@ this is a todo app api for practice with django.
 
 ## Features
 
+- [x] Create a user
+- [x] List all users
+- [x] Get a user
+- [x] Update a user
+- [x] Delete a user
 - [x] Create a todo
 - [x] List all todos
 - [x] Get a todo
@@ -11,6 +16,14 @@ this is a todo app api for practice with django.
 - [x] Delete a todo
 
 ## Schema
+
+### User
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| id | int | Unique identifier |
+| username | string | Username of the user |
+| password | string | Password of the user |
 
 ### Task
 
@@ -25,6 +38,18 @@ this is a todo app api for practice with django.
 | author | string | Author of the task |
 
 ## Endpoints
+
+### User
+
+| Method | Path | Description |
+| ------ | ---- | ----------- |
+| GET | `/api/v1/users/` | List all users |
+| POST | `/api/v1/users/` | Create a user |
+| GET | `/api/v1/users/:id/` | Get a user |
+| PUT | `/api/v1/users/:id/` | Update a user |
+| DELETE | `/api/v1/users/:id/` | Delete a user |
+
+### Task
 
 | Method | Path | Description |
 | ------ | ---- | ----------- |
