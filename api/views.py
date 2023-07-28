@@ -105,7 +105,7 @@ class TaskView(View):
             task = Task.objects.create(
                 title = data.get('title'),
                 description = data.get("description",''),
-                completed = data.get('completed'),
+                completed = data.get('completed',False),
                 author = user
             )
             task.save()
