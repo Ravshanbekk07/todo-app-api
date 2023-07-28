@@ -79,7 +79,7 @@ class TaskView(View):
         else:
             try:
                 task = Task.objects.get(id=pk, author=user)
-                task_dict = model_to_dict(task,fields=['id','title','completed'])
+                task_dict = model_to_dict(task,fields=['id','title','completed',"description"])
                 return JsonResponse(task_dict)
             except User.DoesNotExist:
                 return JsonResponse({'error':'user not found'})
@@ -110,7 +110,7 @@ class TaskView(View):
             )
             task.save()
 
-            return JsonResponse (model_to_dict(task,fields=['id','title','completed']),status =201)
+            return JsonResponse (model_to_dict(task,fields=['id','title','completed',"description"]),status =201)
         except KeyError:
             return JsonResponse({'error':'invalid data'})
     
@@ -136,7 +136,7 @@ class TaskView(View):
             task.description  = data.get("description",task.description)
             task.completed = data.get("completed",task.completed)
             task.save()
-            return JsonResponse(model_to_dict(task,fields=["id","title","completed"]))
+            return JsonResponse(model_to_dict(task,fields=["id","title","completed","description"]))
         except Task.DoesNotExist:
             return JsonResponse({"error":"Task not found"})
         except KeyError:
